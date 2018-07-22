@@ -7,14 +7,14 @@ public class Demo1 {
 		Thread t = new Thread(() -> {
 			
 			try {
-				Thread.sleep(0);
+				Thread.sleep(0); // sleep并不要求在同步方法或同步代码里面调用
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			
 			synchronized (lock) {
 				try {
-					lock.wait();  // wait方法必须在同步代码块里调用
+					lock.wait();  // wait方法必须在同步代码块（同步方法）里调用
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
